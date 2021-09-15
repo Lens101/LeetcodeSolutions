@@ -1,0 +1,27 @@
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int[] solution;
+        for(int i=0; i < nums.length; i++){
+            for(int j=i+1; j< nums.length; j++){ // VERY IMPORTANT YOU START J AT i+1 otherwise you can get output of [1,0] when you want [0,1], see below.
+                int x = target - nums[i];        // X = Target - current position of nums array.   
+                if(nums[j] == x){               //if nums is now x, then you have found both numbers.
+                    return new int[] {i,j};
+                    
+                }            
+            }
+        }
+        throw new IllegalArgumentException("no match found");
+    }
+}
+
+// e.g. nums = [2,7,11,15] 
+//target = 9
+
+
+// X = nums[0] - Target // X Equals 7.
+// now if nums[j] == X then you have found the second number.
+// Otherwise no solution can be found.
+
+//if j=0 and not j=i+1 (Line 5) then you will iterate from the 0th element in the array twice, and as the answer is made //up of two elements in the array, you should not do this.
+
+    
