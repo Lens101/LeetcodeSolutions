@@ -1,0 +1,22 @@
+nums = [2, 8, 5, 7];
+target = 15;
+
+var twoSum = function (nums, target) {
+
+    const previousValues = {};//create hash
+
+    for (i = 0; i < nums.length; i++) { //loopthrough all the numbers
+
+        const currentNumber = nums[i];
+
+        const neededValue = target - currentNumber;
+
+        const index2 = previousValues[neededValue];//null unless neededValue has already been seen and added to previousValues
+
+        if (index2 != null) { //false
+            return [index2, i];
+        } else {
+            previousValues[currentNumber] = i //[-,-,0,-,-,2,-,-,1] // this tracks the indexes of the previous values already passed by, in order to return them if
+        }                                                           // 'index2' != null.
+    }
+}
