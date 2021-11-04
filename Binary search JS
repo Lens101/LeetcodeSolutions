@@ -1,0 +1,36 @@
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+var search = function(nums, target) {
+    
+ //define boundaries low and high to search between   
+ let low = 0, high = nums.length - 1;
+ 
+ //while loop to loop through nums[]
+ while(low < high){
+    
+    //define midpoint as middle of the two boundaries + 1
+    let midpoint = Math.floor((low + high + 1) / 2);
+    
+     //if target < midpoint, set new high boundary as midpoint - 1.     (-1 as we are returning the index, not the value).
+     if(target < nums[midpoint]){
+         
+        high = midpoint - 1; 
+         
+        }
+     else{
+         
+         low = midpoint;
+            
+        }
+    
+    }
+   
+    if(nums[low]== target){
+        return low;
+    }else{
+        return -1;
+    }
+};
