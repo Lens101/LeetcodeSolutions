@@ -15,19 +15,25 @@ Space complexity: O(n)
 
 var sortedSquares = function(nums) {
     
-    let result = [];
+    let right = nums.length -1;
     let left = 0;
-    let right = nums.length - 1;
-    let pivot = right;
-
-    while (left <= right) {
-        
-        if (nums[left] ** 2 > nums[right] ** 2) {
-            result[pivot--] = nums[left++] ** 2;
-        } else {
-            result[pivot--] = nums[right--] ** 2;
+    let results = [];
+    let pivot  = right;
+    
+    while(left <= right){
+        if(nums[left]**2 > nums[right]**2){
+            results[pivot] = nums[left]**2;
+            pivot--;
+            left++;
+            
+            //above 3 lines is same as:
+            //results[pivot--] = nums[left++]**2;
+            
+        }else{
+            results[pivot] = nums[right]**2
+            pivot--;
+            right--;
         }
     }
-    
-    return result;
+    return results;
 };
