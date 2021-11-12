@@ -1,0 +1,30 @@
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
+var rotate = function(nums, k) {
+   
+    k = k % nums.length;
+    let len = nums.length - 1;
+    
+    reverse(nums, 0 , len)          //rotate all
+    reverse(nums, 0, k-1)           //rotate first part
+    reverse(nums, k, len)           //rotate second part
+    
+    return nums;
+    
+    function reverse(array, startIndex, endIndex){
+        
+        while(startIndex < endIndex){
+            let temp;
+            array[temp] = array[startIndex];
+            array[startIndex] = array[endIndex];
+            array[endIndex] = array[temp];
+            
+            //Two pointers bit, move the "sliding window" towards the middle until the while loop condition is false.
+            startIndex++;
+            endIndex--;
+        }
+    }
+};
