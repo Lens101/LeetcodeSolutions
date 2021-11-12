@@ -1,1 +1,2 @@
-# Leetcode Solutions following algorithms #1
+# JavaScript Leetcode Solutions
+# Algorithms course #1
