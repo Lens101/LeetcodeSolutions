@@ -1,1 +1,1 @@
-# Leetcode Solutions Easy
+# Leetcode Solutions following algorithms #1
